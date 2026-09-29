@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" data-site="stick" style="--bg-top: rgb(247, 168, 200);">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stick | Put the off switch in another room</title>
+  <link rel="icon" href="assets/icon.svg">
+  <meta name="description" content="Stick is a USB key that blocks the sites and apps you choose, on Mac and Windows. Ending a session means physically going to get it.">
+  <meta name="theme-color" content="#f7a8c8">
+  <meta property="og:title" content="Stick | Put the off switch in another room">
+  <meta property="og:description" content="Stick is a USB key that blocks the sites and apps you choose, on Mac and Windows. Ending a session means physically going to get it.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="assets/styles.css?v=68b6ad6c">
+  <script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+  <div class="bg-wash" aria-hidden="true"></div>
+  <div class="bg-dots" aria-hidden="true"></div>
+
+  <button class="chrome-logo hover-fade" type="button" aria-label="Back to top">
+    <svg class="chrome-bee-logo" viewBox="0 0 466 309" width="44" height="29" aria-hidden="true" focusable="false">
+      <defs>
+        <mask id="chrome-bee-mask">
+          <circle cx="91.7" cy="154.5" r="91.7" fill="white"></circle>
+          <circle cx="374.3" cy="154.5" r="91.7" fill="white"></circle>
+          <rect x="128" y="0" width="210" height="309" rx="34" fill="white"></rect>
+          <ellipse class="bee-eye" cx="193.3" cy="84.4" rx="27" ry="27" fill="black">
+            <animate attributeName="ry" begin="indefinite" dur="0.72s" values="27;2;27;2;27" keyTimes="0;0.18;0.36;0.54;1" fill="freeze"></animate>
+          </ellipse>
+          <ellipse class="bee-eye" cx="276" cy="84.4" rx="27" ry="27" fill="black">
+            <animate attributeName="ry" begin="indefinite" dur="0.72s" values="27;2;27;2;27" keyTimes="0;0.18;0.36;0.54;1" fill="freeze"></animate>
+          </ellipse>
+          <rect x="166.3" y="157.2" width="136.9" height="38.3" rx="5" fill="black"></rect>
+          <rect x="166.9" y="235.1" width="136.2" height="37.6" rx="5" fill="black"></rect>
+        </mask>
+      </defs>
+      <rect x="0" y="0" width="466" height="309" fill="currentColor" mask="url(#chrome-bee-mask)"></rect>
+    </svg>
+  </button>
+
+  <div class="chrome-right">
+    <a class="buzz-pill chrome-social" href="https://www.instagram.com/stick.ig/" target="_blank" rel="noreferrer" aria-label="Open the stick Instagram profile">
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" aria-hidden="true" focusable="false">
+        <rect x="3" y="3" width="18" height="18" rx="5.4" stroke="currentColor" stroke-width="2"></rect>
+        <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="2"></circle>
+        <circle cx="17.3" cy="6.8" r="1.35" fill="currentColor"></circle>
+      </svg>
+    </a>
+    <a class="chrome-download buzz-pill" href="#pricing">Get Stick</a>
+  </div>
+
+  <a class="chrome-builtby" href="#how-it-works"><span>How it works</span></a>
+
+  <main class="buzz-site">
+    <svg width="0" height="0" aria-hidden="true" focusable="false" class="filter-defs">
+      <title>Stick wordmark texture filter</title>
+      <defs>
+        <filter id="buzz-fuzz-hero" x="-40%" y="-40%" width="180%" height="180%" color-interpolation-filters="sRGB">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="9.6" result="softLogo"></feGaussianBlur>
+          <feTurbulence type="fractalNoise" baseFrequency="0.68" numOctaves="4" seed="7" result="textureNoise">
+            <animate attributeName="seed" dur="0.4s" repeatCount="indefinite" values="7;19;11;25;7"></animate>
+          </feTurbulence>
+          <feDisplacementMap in="softLogo" in2="textureNoise" scale="14.4" xChannelSelector="R" yChannelSelector="G" result="buzzedLogo"></feDisplacementMap>
+          <feColorMatrix in="textureNoise" type="matrix" values="0 0 0 0 0
+                       0 0 0 0 0
+                       0 0 0 0 0
+                       0.66 0.66 0.66 0 0" result="grainMask"></feColorMatrix>
+          <feComposite in="buzzedLogo" in2="grainMask" operator="in" result="grainLogo"></feComposite>
+          <feMerge>
+            <feMergeNode in="buzzedLogo"></feMergeNode>
+            <feMergeNode in="grainLogo"></feMergeNode>
+          </feMerge>
+        </filter>
+      </defs>
+    </svg>
+
+    <!-- HERO -->
+    <section data-bg-section="hero" class="hero">
+      <div class="bee-layer bee-layer-back" data-bee-field="hero-back" aria-hidden="true"></div>
+      <div class="bee-layer bee-layer-front" data-bee-field="hero-front" aria-hidden="true"></div>
+
+      <div class="hero-inner">
+        <div class="hero-wordmark-group">
+          <div class="hero-wordmark" data-fuzz>stick</div>
+        </div>
+        <div class="hero-copy" data-reveal>
+          <h1>Put the off switch<br>in another room.</h1>
+          <p class="hero-sub">A USB key that blocks the sites and apps you choose, on Mac and Windows. Ending a session means physically going to get it.</p>
+          <a class="buzz-pill hero-cta" href="#pricing">Get Stick</a>
+          <p class="hero-fine">$39.99 plus shipping, one time. No subscription. Pre-order. Shipping Q4 2026, with a limited first batch in September 2026.</p>
+        </div>
+      </div>
+
+      <button type="button" class="hero-scroll-cue" aria-label="Scroll to learn more" data-scroll-to="#how-it-works">
+        <span>
+          <svg viewBox="0 0 21.0389 28.4804" fill="none" aria-hidden="true" focusable="false">
+            <title>Scroll down</title>
+            <g>
+              <path d="M15.2985 13.1819L7.85449 5.73784C7.71567 5.59903 7.55088 5.48892 7.36951 5.41379C7.18814 5.33867 6.99375 5.3 6.79744 5.3C6.40097 5.3 6.02073 5.4575 5.74039 5.73784C5.60157 5.87666 5.49146 6.04145 5.41633 6.22282C5.34121 6.40419 5.30254 6.59858 5.30254 6.7949C5.30254 7.19137 5.46004 7.5716 5.74039 7.85195L12.1422 14.2389L5.74039 20.6259C5.60084 20.7643 5.49008 20.929 5.4145 21.1104C5.33892 21.2918 5.3 21.4864 5.3 21.6829C5.3 21.8795 5.33892 22.0741 5.4145 22.2555C5.49008 22.4369 5.60084 22.6016 5.74039 22.74C5.87879 22.8795 6.04345 22.9903 6.22488 23.0659C6.4063 23.1415 6.6009 23.1804 6.79744 23.1804C6.99398 23.1804 7.18857 23.1415 7.37 23.0659C7.55142 22.9903 7.71608 22.8795 7.85449 22.74L15.2985 15.296C15.438 15.1576 15.5488 14.9929 15.6244 14.8115C15.7 14.63 15.7389 14.4355 15.7389 14.2389C15.7389 14.0424 15.7 13.8478 15.6244 13.6664C15.5488 13.4849 15.438 13.3203 15.2985 13.1819Z" fill="currentColor"></path>
+              <path d="M6.79707 5.14961C7.01308 5.14961 7.22739 5.19292 7.42695 5.27559C7.62642 5.35823 7.80747 5.47937 7.96016 5.63203L15.4045 13.0754L15.5129 13.1945C15.616 13.3192 15.7004 13.4587 15.7629 13.6086C15.846 13.8082 15.8888 14.0223 15.8889 14.2385C15.8889 14.4548 15.8461 14.6696 15.7629 14.8693C15.6797 15.0689 15.558 15.2503 15.4045 15.4025L15.4035 15.4016L7.96016 22.8449C7.80788 22.9984 7.62752 23.1211 7.42793 23.2043C7.22823 23.2875 7.01341 23.3303 6.79707 23.3303C6.58085 23.3302 6.36678 23.2874 6.16719 23.2043C5.96757 23.1211 5.78629 22.9994 5.63398 22.8459V22.8449C5.48093 22.6928 5.35857 22.5119 5.27559 22.3127C5.19254 22.1132 5.14961 21.8989 5.14961 21.6828C5.14963 21.4666 5.1925 21.2525 5.27559 21.0529C5.35868 20.8535 5.48065 20.672 5.63398 20.5197L11.9299 14.2385L5.63398 7.9582C5.3256 7.64978 5.1526 7.23126 5.15254 6.79512C5.15254 6.57911 5.19488 6.3648 5.27754 6.16523C5.36015 5.96583 5.4814 5.78469 5.63398 5.63203C5.94238 5.32364 6.36095 5.14971 6.79707 5.14961Z" stroke="currentColor" stroke-width="0.3"></path>
+            </g>
+          </svg>
+        </span>
+      </button>
+    </section>
+
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" data-bg-section="how" class="band how-section">
+      <h2 class="band-heading" data-reveal>How it works</h2>
+
+      <ol class="steps">
+        <li class="step" data-reveal>
+          <span class="step-num">1</span>
+          <h3>Choose what to block.</h3>
+          <p>Sites, apps, and bundled category lists. Save them as modes: Deep Work, Sleep, whatever you need. Up to ten.</p>
+          <img class="step-media" src="assets/how/step1-choose.webp" width="1100" height="987" loading="lazy" decoding="async"
+               alt="The Modes tab in the Stick app, showing a Work mode that blocks 6 apps and 1 site, with its app icons listed and Edit and add buttons.">
+        </li>
+        <li class="step" data-reveal>
+          <span class="step-num">2</span>
+          <h3>Keep the key somewhere else.</h3>
+          <p>A drawer, another room, your bag. You never need it to start a session, only to end one, so it can live away from your desk permanently.</p>
+          <img class="step-media" src="assets/how/step2-key.webp" width="1100" height="1007" loading="lazy" decoding="async"
+               alt="A hand holding the pink Stick key on a lawn, with a brick building out of focus behind it.">
+        </li>
+        <li class="step" data-reveal>
+          <span class="step-num">3</span>
+          <h3>Start a session.</h3>
+          <p>From the menu bar, or on a schedule. The block goes up immediately and holds through quitting and restarting. The only way to end it is to walk over and plug the key back in.</p>
+          <video class="step-media" data-autoplay src="assets/how/step3-session.mp4" poster="assets/how/step3-poster.jpg"
+                 width="1000" height="918" loop muted playsinline preload="metadata"
+                 aria-label="A screen recording: the Stick app showing a Work mode and a Lock button, then Chrome failing to load instagram.com with ERR_CONNECTION_REFUSED."></video>
+        </li>
+      </ol>
+    </section>
+
+
+    <!-- COMPARISON -->
+    <section id="comparison" data-bg-section="compare" class="band compare-section">
+      <h2 class="band-heading" data-reveal>Every other blocker keeps the key on the same machine.</h2>
+
+      <div class="features-track compare-track">
+        <article class="feature-card compare-card" data-reveal>
+          <div class="feature-card-text">
+            <h3>Screen Time</h3>
+            <p class="compare-where">On the machine you are trying to leave.</p>
+            <p>The passcode is one you chose, and you can reset it from that same Mac.</p>
+          </div>
+        </article>
+        <article class="feature-card compare-card" data-reveal>
+          <div class="feature-card-text">
+            <h3>Other blocking apps</h3>
+            <p class="compare-where">On the machine you are trying to leave.</p>
+            <p>Some are genuinely hard to cancel once a session has started, and that part is real. But the key is still software, running in front of you, and the screen is very good at this.</p>
+          </div>
+        </article>
+        <article class="feature-card compare-card" data-reveal>
+          <div class="feature-card-text">
+            <h3>Deleting the app</h3>
+            <p class="compare-where">On the machine you are trying to leave.</p>
+            <p>Under a minute to reinstall.</p>
+          </div>
+        </article>
+        <article class="feature-card compare-card is-stick" data-reveal>
+          <div class="feature-card-text">
+            <h3>Stick</h3>
+            <p class="compare-where">Physical friction.</p>
+            <p>Accessing distractions means getting up and grabbing the physical key from wherever you left it. A drawer, another room, your bag.</p>
+          </div>
+        </article>
+      </div>
+
+      <p class="band-kicker" data-reveal>The difference isn’t strength. It’s distance.</p>
+    </section>
+
+
+    <!-- PRICING -->
+    <section id="pricing" data-bg-section="pricing" class="band pricing-section">
+      <div class="pricing-layout">
+        <img class="pricing-key" src="assets/stick-key.webp?v=b2602285" width="1200" height="365" loading="lazy" decoding="async" data-reveal
+             alt="The Stick key: a hot pink USB-C key with stick. embossed on it">
+        <div class="pricing-card" data-reveal>
+          <p class="pricing-price">$39.99 <span>plus shipping.</span></p>
+          <ul class="pricing-list">
+            <li>The key: USB-C, in hot pink or gray, Stick. embossed</li>
+            <li>The Mac and Windows apps, with free updates</li>
+            <li>One key works on every Mac and PC you own</li>
+            <li>No subscription</li>
+            <li>Ships worldwide. Shipping is charged at checkout and depends on where you are. Duties and import taxes, where your country charges them, are yours too</li>
+          </ul>
+          <!-- The checkout. Two buttons rather than one, because each Shopify cart
+               permalink names a single variant: one "Get Stick" would choose a
+               colour on the buyer's behalf and never show them the other. Each
+               button is the colour of the key it buys.
+
+               Same tab, as the previous site did. The variant ids are Shopify's
+               and are stable unless the product's options are restructured —
+               renaming Black to Gray once retired the old id and the button went
+               on linking to a cart that answered 410. Re-read them from
+               shop.getstick.website/products.json if the product changes. -->
+          <p class="pricing-choose">Choose a colour</p>
+          <div class="pricing-colours">
+            <a class="buzz-pill pricing-cta pricing-colour" data-colour="pink"
+               href="https://shop.getstick.website/cart/52143838298252:1">Hot pink</a>
+            <a class="buzz-pill pricing-cta pricing-colour" data-colour="gray"
+               href="https://shop.getstick.website/cart/53670640615564:1">Gray</a>
+          </div>
+          <p class="pricing-note">Pre-order. Charged today, ships Q4 2026. A limited first batch goes out in September 2026.</p>
+          <p class="pricing-note">Cancel before it ships, or 30 days from delivery. See <a href="pages/refunds.html">refunds</a>.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- MODES -->
+    <section id="modes" data-bg-section="modes" class="band modes-section">
+      <h2 class="band-heading" data-reveal>Modes</h2>
+      <p class="band-sub" data-reveal>Each mode is a named set of sites, apps and categories. Switch between them, or let a schedule start one for you.</p>
+      <ul class="mode-chips" data-reveal>
+        <li>Deep Work</li>
+        <li>Sleep</li>
+        <li>Study</li>
+        <li>Evenings</li>
+        <li>Writing</li>
+        <li>Weekends off</li>
+      </ul>
+    </section>
+
+
+    <!-- DETAILS -->
+    <section id="details" data-bg-section="details" class="band details-section">
+      <h2 class="band-heading" data-reveal>The details we think you’ll care about</h2>
+      <div class="details-grid">
+        <div class="detail" data-reveal>
+          <h3>A schedule can start a session, but never end one.</h3>
+          <p>Sleep mode can switch on at 22:00 on weeknights without you deciding to switch it on. There is no matching end time, because that would be a second way out that does not need the key.</p>
+        </div>
+        <div class="detail" data-reveal>
+          <h3>You cannot weaken it mid-session.</h3>
+          <p>Once a session is running, the settings are locked too. No quietly removing a site from the list to get around your own block.</p>
+        </div>
+        <div class="detail" data-reveal>
+          <h3>Blocking happens in three places at once.</h3>
+          <p>Sites are blocked at two different levels of your system, and blocked apps are closed if you open them. Any one of those on its own would leak.</p>
+        </div>
+        <div class="detail" data-reveal>
+          <h3>The usual workarounds are already closed.</h3>
+          <p>The tricks people reach for first, private DNS, hidden browser settings, proxy and VPN services, are shut off while a session runs, along with about 17,500 sites that exist purely to get around blockers.</p>
+        </div>
+        <div class="detail" data-reveal>
+          <h3>Browser settings stay changed after a restart.</h3>
+          <p>Browsers only read their settings when they open, so a change that lasted only as long as the session would be useless five seconds after you quit Chrome.</p>
+        </div>
+        <div class="detail" data-reveal>
+          <h3>The app cannot let itself out.</h3>
+          <p>The window you click on has no power to unlock anything. It can only ask, and be refused. There is no prompt you can talk yourself into approving.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- LOST KEY -->
+    <section id="lost-key" data-bg-section="key" class="band key-section">
+      <h2 class="band-heading" data-reveal>If you lose your key</h2>
+      <p class="band-sub" data-reveal>Two answers, and we’d rather you know both before you buy than after.</p>
+      <div class="key-grid">
+        <div class="key-card" data-reveal>
+          <h3>Five emergency unlocks</h3>
+          <p>Every Mac gets five, for the times you really need out and the key is three hours away. They end a session without it. They do not refill. Five is what you get, so spend them like it.</p>
+        </div>
+        <div class="key-card" data-reveal>
+          <h3>After that, contact us</h3>
+          <p>Write to us, a real person on the other end, and we’ll unlock your machine manually, within one business day. Not instantly, on purpose: an unlock we granted in five minutes would just be the button this whole product exists to remove.</p>
+        </div>
+      </div>
+      <p class="band-kicker" data-reveal>We’d rather you knew both before you buy than discover them afterwards.</p>
+    </section>
+
+
+    <!-- PLATFORMS -->
+    <section id="platforms" data-bg-section="platforms" class="band platforms-section">
+      <h2 class="band-heading" data-reveal>Mac and Windows, one key</h2>
+      <div class="platforms-copy">
+        <p data-reveal>The key is the same physical object on both, so the Stick that locks your Mac unlocks your PC. Set up each machine once and the key is adopted rather than replaced — a laptop for work and a desktop at home can share one.</p>
+        <p data-reveal>Blocking works the same way on each: sites stopped at two levels of the system, blocked apps closed when you open them, and settings that cannot be weakened while a session is running. Both apps come with your order at no extra cost, and there is nothing to buy twice.</p>
+        <p class="platforms-req" data-reveal>macOS 13 Ventura or later, on Apple Silicon or Intel. Windows 10 or 11, on Intel, AMD or ARM. Nothing older, on either side.</p>
+      </div>
+    </section>
+
+
+    <!-- QUESTIONS -->
+    <section id="questions" data-bg-section="questions" class="band questions-section">
+      <h2 class="band-heading" data-reveal>Questions</h2>
+      <div class="faq" data-reveal>
+        <details>
+          <summary>How is this different from Screen Time or Freedom?</summary>
+          <p>Their key lives on the machine you’re trying to get away from. Ours is an object you can put in another room. Some of those apps are legitimately hard to cancel mid-session, and we’re not claiming otherwise. We’re claiming distance beats difficulty.</p>
+        </details>
+        <details>
+          <summary>Can’t I just get around it?</summary>
+          <p>Yes, if you’re determined and technical. It’s your computer and you have administrator rights on it. Stick is built to beat the impulse, not you with a terminal open and an afternoon free. What it removes is the easy exit: no timer to wait out, no button that ends a session early, and no password you can talk yourself into typing. The way back in is a walk to wherever you left the key.</p>
+        </details>
+        <details>
+          <summary>Do I need the key to start a session?</summary>
+          <p>No. Start one from the menu bar, or let a schedule do it. The key is only how you get out.</p>
+        </details>
+        <details>
+          <summary>What can I block?</summary>
+          <p>Any website and any app, individually. Plus two bundled category lists, Explicit content and Gambling, which are tens of thousands of domains each. There deliberately isn’t a “social media” category: the site picker lets you choose the individual sites, which is finer-grained and more honest than one switch over a list you can’t inspect.</p>
+        </details>
+        <details>
+          <summary>Does the block survive a restart?</summary>
+          <p>Yes. The blocking service runs at boot and is set to restart if it stops, the blocked-hosts region is restored within two seconds of any hand edit, and browser policy is written persistently rather than per-session. Restarting, logging out, quitting the app or killing the process all leave the block in place. What ends it is the key, or one of the five emergency unlocks.</p>
+        </details>
+        <details>
+          <summary>What happens if I lose the key?</summary>
+          <p>Five emergency unlocks per machine. It’s a lifetime allowance and they don’t refill. After that, write to us and we’ll unlock it manually.</p>
+        </details>
+        <details>
+          <summary>What does Stick install?</summary>
+          <p>A small program that runs in the background, plus the app window you use. The background program needs the highest level of access on your machine, because that is what keeps a block in place after a restart instead of letting it disappear the moment you quit the app. It is signed either way — checked by Apple on a Mac, and code-signed on Windows — so your computer can confirm it came from us and has not been tampered with, and the installer comes on the key itself. The window you click on has no power to unlock anything by itself: it can only ask the background program, and be refused.</p>
+        </details>
+        <details>
+          <summary>Do you see what I block?</summary>
+          <p>No. Nothing in Stick sends anything to us: no account, no check to see whether you paid, no record of how you use it. Your modes, your blocked lists and your session history stay on your machine. It does download two lists from GitHub, and neither carries anything about you: the sites for a category when you switch one on, and a weekly refresh of the list of sites people use to get around blockers. If you would rather check than take our word for it, any network monitor will show you exactly that.</p>
+        </details>
+      </div>
+      <p class="faq-all" data-reveal><a href="pages/faq.html">All questions →</a></p>
+    </section>
+
+
+    <!-- FOOTER -->
+    <div class="footer-wrap">
+      <footer id="get" data-bg-section="footer" class="site-footer">
+        <svg width="0" height="0" aria-hidden="true" focusable="false" class="filter-defs">
+          <defs>
+            <filter id="buzz-fuzz-footer" x="-40%" y="-40%" width="180%" height="180%" color-interpolation-filters="sRGB">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="16" result="softLogo"></feGaussianBlur>
+              <feTurbulence type="fractalNoise" baseFrequency="0.68" numOctaves="4" seed="7" result="textureNoise">
+                <animate attributeName="baseFrequency" dur="0.4s" repeatCount="indefinite" values="0.68;0.8;0.6;0.86;0.68"></animate>
+                <animate attributeName="seed" dur="0.4s" repeatCount="indefinite" values="7;19;11;25;7"></animate>
+              </feTurbulence>
+              <feDisplacementMap in="softLogo" in2="textureNoise" scale="24" xChannelSelector="R" yChannelSelector="G" result="buzzedLogo"></feDisplacementMap>
+              <feColorMatrix in="textureNoise" type="matrix" values="0 0 0 0 0
+                       0 0 0 0 0
+                       0 0 0 0 0
+                       0.66 0.66 0.66 0 0" result="grainMask"></feColorMatrix>
+              <feComposite in="buzzedLogo" in2="grainMask" operator="in" result="grainLogo"></feComposite>
+              <feMerge>
+                <feMergeNode in="buzzedLogo"></feMergeNode>
+                <feMergeNode in="grainLogo"></feMergeNode>
+              </feMerge>
+            </filter>
+            <filter id="buzz-fuzz-footer-mobile" x="-40%" y="-40%" width="180%" height="180%" color-interpolation-filters="sRGB">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="softLogo"></feGaussianBlur>
+              <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="5" seed="7" result="textureNoise"></feTurbulence>
+              <feDisplacementMap in="softLogo" in2="textureNoise" scale="11" xChannelSelector="R" yChannelSelector="G" result="buzzedLogo"></feDisplacementMap>
+              <feColorMatrix in="textureNoise" type="matrix" values="0 0 0 0 0
+                       0 0 0 0 0
+                       0 0 0 0 0
+                       0.5 0.5 0.5 0 0" result="grainMask"></feColorMatrix>
+              <feComposite in="buzzedLogo" in2="grainMask" operator="in" result="grainLogo"></feComposite>
+              <feMerge>
+                <feMergeNode in="buzzedLogo"></feMergeNode>
+                <feMergeNode in="grainLogo"></feMergeNode>
+              </feMerge>
+            </filter>
+          </defs>
+        </svg>
+
+        <div class="footer-bees" data-bee-field="footer" aria-hidden="true"></div>
+        <div class="footer-wordmark-static" aria-hidden="true">stick</div>
+        <div class="footer-wordmark-marquee" aria-hidden="true">
+          <div class="buzz-marquee-track">
+            <div class="buzz-marquee-group"><span>stick</span><span>stick</span></div>
+            <div class="buzz-marquee-group"><span>stick</span><span>stick</span></div>
+          </div>
+        </div>
+
+        <div class="footer-content" data-reveal>
+          <p class="footer-type" aria-live="off"><span data-typewriter></span><span class="type-caret" aria-hidden="true">|</span></p>
+          <p class="footer-fine">$39.99 plus shipping, one time. Ships Q4 2026.</p>
+          <div class="footer-actions">
+            <a class="buzz-pill footer-pill" href="#pricing">Get Stick</a>
+            <a class="buzz-pill footer-pill footer-pill-social" href="https://www.instagram.com/stick.ig/" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" aria-hidden="true" focusable="false">
+                <rect x="3" y="3" width="18" height="18" rx="5.4" stroke="currentColor" stroke-width="2"></rect>
+                <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="2"></circle>
+                <circle cx="17.3" cy="6.8" r="1.35" fill="currentColor"></circle>
+              </svg>
+              Follow on Instagram
+            </a>
+          </div>
+        </div>
+      </footer>
+
+      <div class="legal-footer-wrap">
+        <footer class="legal-footer">
+          <div class="legal-links-row">
+            <span class="legal-links-item"><a href="pages/faq.html" class="legal-link">FAQ</a></span>
+            <span class="legal-links-item"><span aria-hidden="true" class="legal-link-sep">|</span><a href="pages/refunds.html" class="legal-link">Refunds</a></span>
+            <span class="legal-links-item"><span aria-hidden="true" class="legal-link-sep">|</span><a href="pages/terms.html" class="legal-link">Terms of sale</a></span>
+            <span class="legal-links-item"><span aria-hidden="true" class="legal-link-sep">|</span><a href="pages/privacy.html" class="legal-link">Privacy</a></span>
+            <span class="legal-links-item"><span aria-hidden="true" class="legal-link-sep">|</span><a href="pages/contact.html" class="legal-link">Contact</a></span>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </main>
+
+  <script src="assets/app.js?v=f40193cb"></script>
+</body>
+</html>

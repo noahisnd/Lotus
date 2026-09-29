@@ -1,142 +1,103 @@
 # Stick — site
 
-Marketing and pre-order site for Stick. Static, seven pages plus a 404. Live at https://www.getstick.website
+The landing page for getstick.website. Static HTML, CSS and vanilla JavaScript —
+no build step, no dependencies. The design came from the `noahisnd/buzz`
+repository; this branch replaces the previous Astro site with it.
+
+## Before anything else: what must never be deleted
+
+getstick.website is not only a landing page. Every installed copy of Stick asks
+it for updates, and none of that is visible from the page itself.
+
+| File in `public/` | Who reads it |
+| --- | --- |
+| `latest.json` | every installed Mac, once a day and at launch |
+| `latest-windows.json` | every installed PC, once a day and at launch |
+| whatever `.pkg` / `.exe` those two name | the updater, straight after reading them |
+
+Remove any of these and updates stop — **silently**. Nothing on a customer's
+machine reports a manifest that 404s; it reads as "you are up to date", and the
+fleet stops moving forward without anyone noticing. They are written by the
+release scripts in the product repo (`app/release-manifest.sh` and the Windows
+release steps), not by hand.
+
+`/faq` is linked from inside the app, and `/terms`, `/refunds`, `/privacy` and
+`/updates` from the policy text pasted into Shopify's checkout. Those URLs are
+kept working by `vercel.json` below.
+
+## Run it
 
 ```bash
-npm install
-npm run dev      # http://localhost:4321
-npm run build    # → dist/
+python3 scripts/serve.py        # http://localhost:4173
 ```
 
-## Stack
+Use this rather than `python3 -m http.server`. That serves the files but ignores
+`vercel.json`, so `/faq`, `/terms`, `/buy` and the rest 404 locally while working
+in production — and routing is the part of this site most likely to be wrong.
+`serve.py` applies the same redirects and rewrites Vercel will.
 
-| Choice | Why |
+## How it deploys
+
+`vercel.json` turns off the framework, the install and the build, and serves
+`public/` as it is. Empty strings rather than `null` for the two commands: in
+Vercel's schema `null` means *detect it*, which could put back the Astro build
+the project dashboard still remembers.
+
+Old URLs keep working:
+
+| URL | Goes to |
 | --- | --- |
-| Astro 7, static output | The site is a long document with a form. The only client JS is the ~2.8 kB inlined analytics module. |
-| Tailwind 4 (`@tailwindcss/vite`) | Tokens live in `src/styles/global.css` under `@theme`. |
-| System font stack | `-apple-system` renders as SF Pro on the Macs this is sold to. No webfont request, no layout shift. |
-| Buttondown | Two lists via tags. No dark patterns, exports cleanly if you outgrow it. |
-| Vercel Web Analytics | Cookieless, so no consent banner — which matters on a site arguing it doesn't manipulate you. Wired in `src/layouts/Base.astro`; needs switching on per-project in the Vercel dashboard. |
+| `/faq`, `/terms`, `/refunds`, `/privacy`, `/contact` | `pages/*.html`, same URL in the bar |
+| `/buy` | `/#pricing` — the colour choice |
+| `/demo` | `/#how-it-works` |
+| `/story`, `/updates` | `/` for now — see below |
 
-## Accessibility
+The redirects are temporary (307) on purpose, so that when real pages come back
+browsers and search engines have not cached them away.
 
-Audited and passing WCAG 2.1 AA on the checks that can be verified statically:
-contrast, heading order, landmarks, alt text, focus visibility, keyboard reach.
+`www.getstick.website` is canonical: Vercel 308s the apex to it.
 
-The one thing to know before changing colours: **`--color-brand` (#2191fb) is
-decorative only.** It is 3.23:1 on white, which fails AA for text and for white
-text sitting on it. `--color-accent` (#1a71c4) is the same hue darkened until it
-passes 5.0:1 both ways, and it is what every link, button and focus ring uses.
-Don't swap the brand colour back into interactive elements.
+## The checkout
 
-Re-run the contrast and structure checks after any palette or markup change —
-the script used is in the git history for this commit.
+Two buttons in the pricing card, one per colour, each a Shopify cart permalink:
 
-## Domain
+| Colour | Variant | |
+| --- | --- | --- |
+| Hot pink | `52143838298252` | `shop.getstick.website/cart/52143838298252:1` |
+| Gray | `53670640615564` | `shop.getstick.website/cart/53670640615564:1` |
 
-`www.getstick.website`, set as `site` in `astro.config.mjs`. That one value
-drives canonical tags, `og:url`, and the sitemap — change it there, not per page.
+Two buttons because a permalink names one variant: a single "Get Stick" would
+choose a colour for the buyer and never show them the other. Every other "Get
+Stick" on the page scrolls to this card rather than choosing on their behalf.
 
-**It must match the host that actually serves.** Vercel 308s the apex to `www`,
-so `www` is canonical. If you flip that in Vercel, flip this too, or every
-canonical tag points at a redirect.
+The ids are Shopify's and stay put unless the product's options are
+restructured — renaming Black to Gray once retired the old variant, and the
+button went on linking to a cart that answered 410 with nothing on screen to
+say so. After any change to the product, re-read them:
 
-Deploy to Netlify or Vercel: build `npm run build`, publish `dist`. Point the
-apex at the host and let it issue the certificate; nothing in the site assumes
-`www`, so redirect `www → apex` at the host to avoid splitting canonicals.
-
-## Where things are
-
-```
-src/config.ts            Every changeable fact. Start here.
-src/data/faq.ts          FAQ questions, shared by / and /faq
-src/assets/stick-key.png Product shot, optimized at build into WebP
-src/assets/app-*.png     App screenshots (idle, session, modes, activity)
-src/pages/index.astro    Home
-src/pages/buy.astro      Price + pre-order terms, links out to Stripe
-src/pages/refunds.astro  Refund policy
-src/pages/privacy.astro  Privacy policy
-src/pages/terms.astro    Terms of sale
-src/pages/404.astro      Not found (noindex; Vercel serves it automatically)
-src/pages/faq.astro      FAQ
-public/og.png            Social card — regenerate with `python3 scripts/og.py`
-scripts/og.py            Builds the social card from the product shot
+```bash
+curl -s https://shop.getstick.website/products.json | python3 -m json.tool | grep -E '"(id|title)"'
 ```
 
-Copy source of truth is `../copy-v1.md`.
+## Cache-busting
 
-## Before this goes live
+`styles.css` and `app.js` are linked as `?v=<hash>`, the first 8 characters of
+the file's MD5. Change either file and update the hash in `index.html` **and**
+every file in `pages/`, or browsers keep serving the old copy:
 
-No unresolved facts render on the page any more — the visible-marker system is
-currently showing nothing, which is the intended steady state.
+```bash
+md5 -q public/assets/styles.css | cut -c1-8
+```
 
-**`supportEmail` is monitored, or it should be.** `/limits` promises a human who
-performs manual unlocks and `/refunds` promises one who processes refunds. Both
-now point at a real inbox, and both state a one-business-day response. That is a
-commitment the site makes on your behalf.
+## What's here
 
-### Accounts to create
-
-- **Vercel** — deploy the project, then turn on Web Analytics under its
-  Analytics tab. `<Analytics />` is already on every page and collects nothing
-  until that switch is flipped.
-- **Buttondown** — set `buttondownUser`. Until then `EmailForm` renders
-  **nothing** in production rather than shipping a form that drops addresses.
-  One value turns collection on everywhere it is used.
-
-### Facts verified against the source, not assumed
-
-These were open questions; the answers came out of the repo and are now on the
-site. Recorded here so nobody re-litigates them from memory.
-
-| Claim | Where it was verified |
-| --- | --- |
-| macOS 14 Sonoma minimum, Apple Silicon only | `app/build.sh` targets `arm64-apple-macosx14.0`; `app/Info.plist` declares `LSMinimumSystemVersion 14.0`. **This was previously stated as macOS 13 Ventura, which was wrong.** |
-| Two categories ship: Explicit content, Gambling | `internal/blocklist/blocklist.go` — social and fake-news were retired deliberately |
-| Block survives reboot, logout, quit, kill | `internal/platform/service_darwin.go` sets `RunAtLoad` + `KeepAlive`; `internal/enforce/enforce.go` restores the hosts region on a 2s tick |
-| The app makes outbound requests | `internal/blocklist/blocklist.go` fetches category lists from StevenBlack on demand and the bypass feed from HaGeZi weekly. **Nothing goes to a server we control**, but "nothing phones home" was too strong and is now worded precisely. |
-
-### Blocklist licensing — lower risk than it looked
-
-The lists are **downloaded at runtime by the user's machine**, not vendored into
-the product. That is a materially different legal position from redistributing
-them: you aren't shipping the data. StevenBlack is MIT. HaGeZi's terms are still
-worth a read before launch, but the "we redistribute GPL data in a paid product"
-problem does not apply as written.
-
-### Still open, lower stakes
-
-- **Legal entity.** `company` is set to the trading name Lotus Technologies,
-  which /privacy needs in order to name a data controller. Append the legal
-  suffix once Delaware formation completes, set `legalEntity`, and change
-  Stripe's statement descriptor to match — a customer should see the same name
-  on the site, at checkout, and on their card statement.
-- **Sales tax and VAT.** Selling physical goods worldwide creates registration
-  obligations — US state nexus thresholds, EU/UK import VAT. Stripe Tax covers
-  most of it but is not automatic. The terms say duties are the buyer's; that
-  does not cover your own registration duties.
-- The pre-order promises a September 2026 ship. No sticks are ordered yet
-  (2–4 week lead) and the installer has still never run on a second Mac.
-
-## Buying
-
-`BuyButton` handles every CTA. `target="page"` (default) goes to `/buy`;
-`target="stripe"` goes straight to the Payment Link in `src/config.ts`. Only
-`/buy` links out to Stripe — every other CTA routes through it, so the pre-order
-terms and the link to `/limits` are always seen before checkout.
-
-`EmailForm` now serves one purpose: the Windows waitlist on the home page.
-
-### Stripe housekeeping
-
-The Payment Link is live and takes money today. Three things to fix in the
-Stripe dashboard, all of which reduce disputes:
-
-- The product is named **"Stick"**, described as "Laptop hardware…". A buyer who
-  sees neither "Stick" nor the price they expected at the moment of payment is a
-  buyer who might file a chargeback. Rename it to match the site.
-- The merchant shows as **"Noah Johnson"** — a personal name. Card statements
-  will show something similar. Set a statement descriptor a buyer will recognise.
-- The site says **"+ shipping"**. Confirm shipping rates are actually configured
-  on the link, or the site is promising a charge Stripe never adds and you eat
-  the postage.
+```
+vercel.json          routing, and no build
+public/index.html    the page
+public/pages/        faq, terms, refunds, privacy, contact
+public/assets/       styles.css, app.js, icon, step media, the key photo
+public/*.json        update manifests — see the top of this file
+public/*.pkg, *.exe  the installers those manifests name
+scripts/serve.py     local preview that honours vercel.json
+scripts/og.py        generates og.png
+```

@@ -1,6 +1,14 @@
 {
   "version": "0.0.1",
   "configurations": [
-    { "name": "stick-site", "runtimeExecutable": "npm", "runtimeArgs": ["run", "dev"], "port": 4321 }
+    {
+      "name": "stick-site",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "scripts/serve.py",
+        "4173"
+      ],
+      "port": 4173
+    }
   ]
 }

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "",
+  "buildCommand": "",
+  "outputDirectory": "public",
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/buy", "destination": "/#pricing", "permanent": false },
+    { "source": "/demo", "destination": "/#how-it-works", "permanent": false },
+    { "source": "/story", "destination": "/", "permanent": false },
+    { "source": "/updates", "destination": "/", "permanent": false }
+  ],
+  "rewrites": [
+    { "source": "/faq", "destination": "/pages/faq.html" },
+    { "source": "/terms", "destination": "/pages/terms.html" },
+    { "source": "/refunds", "destination": "/pages/refunds.html" },
+    { "source": "/privacy", "destination": "/pages/privacy.html" },
+    { "source": "/contact", "destination": "/pages/contact.html" }
+  ]
+}
