@@ -137,29 +137,7 @@ img, video { cursor: var(--cursor-arrow); }
   padding: 0;
   line-height: 0;
 }
-.chrome-wordmark {
-  display: block;
-  font-family: var(--font-sans); /* a button does not inherit it */
-  font-size: 45px;
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.045em;
-  color: #000;
-}
-/* The dot on the i is a square in the key's own pink. A dotless i (U+0131)
-   underneath, so the font's round dot does not show through. */
-.chrome-i { position: relative; display: inline-block; }
-.chrome-i::after {
-  content: "";
-  position: absolute;
-  /* Over the stem itself rather than the letter's box: the stroke starts
-     0.045em in and is 0.162em wide, measured from the heavy system face. */
-  left: 0.045em;
-  bottom: 0.75em;
-  width: 0.162em;
-  height: 0.162em;
-  background: var(--stick-key);
-}
+.chrome-bee-logo { display: block; }
 
 .chrome-right {
   position: fixed;
