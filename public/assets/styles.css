@@ -137,8 +137,6 @@ img, video { cursor: var(--cursor-arrow); }
   padding: 0;
   line-height: 0;
 }
-/* "stick" in heavy type, with the bee standing in for the dot on the i.
-   A dotless i (U+0131) under the bee, so no real dot shows through. */
 .chrome-wordmark {
   display: block;
   font-family: var(--font-sans); /* a button does not inherit it */
@@ -147,15 +145,6 @@ img, video { cursor: var(--cursor-arrow); }
   line-height: 1;
   letter-spacing: -0.045em;
   color: #000;
-}
-.chrome-i { position: relative; display: inline-block; }
-.chrome-bee-logo {
-  position: absolute;
-  left: 50%;
-  bottom: 0.74em;
-  width: 0.36em;
-  height: 0.53em;
-  transform: translateX(-50%);
 }
 
 .chrome-right {
