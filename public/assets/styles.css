@@ -261,7 +261,7 @@ img, video { cursor: var(--cursor-arrow); }
      side of it. It sat against the left edge before, leaving the right third
      of a wide screen empty. */
   justify-content: center;
-  gap: clamp(24px, 4vw, 64px);
+  gap: clamp(40px, 7vw, 128px);
   width: 100%;
   padding: 0 5vw;
   position: relative;
@@ -562,7 +562,7 @@ img, video { cursor: var(--cursor-arrow); }
    -------------------------------------------------------------------------- */
 
 @media (max-width: 1080px) {
-  .hero-inner { flex-direction: column; align-items: flex-start; padding: 0 8vw; }
+  .hero-inner { flex-direction: column; align-items: flex-start; padding: 0 8vw; gap: clamp(24px, 4vw, 64px); }
   .hero-copy { padding-right: 0; margin-top: 28px; }
   .hero-wordmark { font-size: clamp(88px, 24vw, 220px); margin-left: 0; }
   .features-track { --features-track-justify: flex-start; --features-track-padding: 0 6vw; }
