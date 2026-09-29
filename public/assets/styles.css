@@ -140,7 +140,7 @@ img, video { cursor: var(--cursor-arrow); }
 .chrome-wordmark {
   display: block;
   font-family: var(--font-sans); /* a button does not inherit it */
-  font-size: 30px;
+  font-size: 45px;
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.045em;
