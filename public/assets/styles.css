@@ -146,6 +146,19 @@ img, video { cursor: var(--cursor-arrow); }
   letter-spacing: -0.045em;
   color: #000;
 }
+/* The dot on the i is a square in the key's own pink. A dotless i (U+0131)
+   underneath, so the font's round dot does not show through. */
+.chrome-i { position: relative; display: inline-block; }
+.chrome-i::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0.75em;
+  width: 0.27em;
+  height: 0.27em;
+  transform: translateX(-50%);
+  background: var(--stick-key);
+}
 
 .chrome-right {
   position: fixed;
