@@ -261,7 +261,7 @@ img, video { cursor: var(--cursor-arrow); }
      side of it. It sat against the left edge before, leaving the right third
      of a wide screen empty. */
   justify-content: center;
-  gap: clamp(40px, 7vw, 128px);
+  gap: clamp(48px, 8.4vw, 154px);
   width: 100%;
   padding: 0 5vw;
   position: relative;
