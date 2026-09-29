@@ -257,9 +257,13 @@ img, video { cursor: var(--cursor-arrow); }
 .hero-inner {
   display: flex;
   align-items: center;
+  /* The wordmark and the copy as one centred pair, with the same space either
+     side of it. It sat against the left edge before, leaving the right third
+     of a wide screen empty. */
+  justify-content: center;
   gap: clamp(24px, 4vw, 64px);
   width: 100%;
-  padding: 0;
+  padding: 0 5vw;
   position: relative;
   z-index: 3;
 }
@@ -269,7 +273,7 @@ img, video { cursor: var(--cursor-arrow); }
 .hero-wordmark {
   font-size: clamp(104px, 19vw, 300px);
   font-weight: 700;
-  margin: 0 0 0 15px;
+  margin: 0;
   line-height: 0.9;
   letter-spacing: -0.04em;
   user-select: none;
@@ -290,8 +294,8 @@ img, video { cursor: var(--cursor-arrow); }
   max-width: 640px;
   flex: 0 1 auto;
   min-width: 0;
-  padding-right: 6vw;
-  margin-top: clamp(48px, 5.5vw, 88px);
+  padding-right: 0;
+  margin-top: 0;
   position: relative;
   z-index: 3;
 }
