@@ -152,11 +152,12 @@ img, video { cursor: var(--cursor-arrow); }
 .chrome-i::after {
   content: "";
   position: absolute;
-  left: 50%;
+  /* Over the stem itself rather than the letter's box: the stroke starts
+     0.045em in and is 0.162em wide, measured from the heavy system face. */
+  left: 0.045em;
   bottom: 0.75em;
-  width: 0.27em;
-  height: 0.27em;
-  transform: translateX(-50%);
+  width: 0.162em;
+  height: 0.162em;
   background: var(--stick-key);
 }
 
