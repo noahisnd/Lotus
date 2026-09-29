@@ -14,12 +14,49 @@
   <main class="doc-page">
     <a class="doc-back buzz-pill" href="../index.html">&#8592; Back</a>
     <h1>Privacy</h1>
-    <p>Nothing in Stick sends anything to us: no account, no check to see whether you paid, no record of how you use it.</p>
-    <h2>What stays on your machine</h2>
-    <p>Your modes, your blocked lists and your session history.</p>
-    <h2>What it downloads</h2>
-    <p>Two lists from GitHub, neither carrying anything about you: the sites for a category when you switch one on, and a weekly refresh of the list of sites people use to get around blockers. Any network monitor will show you exactly that.</p>
-    <p class="doc-note">Placeholder page in a static rebuild of the Stick landing page &#8212; the homepage copy is the real thing, this page is not.</p>
+    <p>Lotus Technologies LLC runs all three of these, and this covers all three: the Stick app, this website, and buying a Stick.</p>
+    <p>The short version: the app sends us nothing at all. Buying one means Shopify handles your payment and we see your name and shipping address so we can post you a key. That’s the whole of it.</p>
+    <p>Last updated 11 August 2026.</p>
+    <h2>The app sends us nothing</h2>
+    <p>There is no account, no licence check, no telemetry and no crash reporting. We do not know what you block, when you start a session, how long you lock for, or whether you ever open the app. This isn’t a policy we could quietly reverse. There is no server of ours for the app to talk to.</p>
+    <p>Your modes, your blocked sites and apps, your session history and your activity charts are stored on your machine and stay there.</p>
+    <h2>The app does talk to GitHub, twice</h2>
+    <p>Two things are downloaded, both public files on GitHub, neither of them from us:</p>
+    <ul>
+      <li>When you switch on a category, Explicit content or Gambling, its blocklist is fetched from the public StevenBlack hosts lists.</li>
+      <li>The bypass-domain list, which covers encrypted-DNS, VPN and proxy services, refreshes from HaGeZi’s public list about once a week.</li>
+    </ul>
+    <p>These requests carry nothing about you beyond what any file download does: GitHub sees your IP address and which file you asked for. They do not tell GitHub, or us, which individual sites you block, because that list never leaves your machine. Both files are cached locally, so the app works offline once it has them.</p>
+    <p>If you want to check this rather than take our word for it, run Little Snitch or a similar tool. Those two requests are all you’ll see.</p>
+    <h2>What the app changes on your machine</h2>
+    <p>Not privacy in the data-collection sense, but you should know what it touches, because a background service running as root is a real thing to install:</p>
+    <ul>
+      <li>A marked region of your system hosts file, restored within two seconds if it’s edited during a session. Entries outside that region are never touched.</li>
+      <li>A firewall ruleset while a session is running.</li>
+      <li>Browser configuration. Encrypted DNS is switched off by machine policy, and Chrome extensions that request proxy permissions are disabled during a session. Password managers and ad blockers are left alone. This policy persists across restarts, because browsers only read it when they launch.</li>
+      <li>Running applications you’ve chosen to block are quit if you open them.</li>
+    </ul>
+    <h2>Buying one</h2>
+    <p>Checkout is handled entirely by Shopify on Shopify’s own page. They collect your name, email address, shipping address and payment details, and their privacy policy governs what happens there.</p>
+    <p>What we can see afterwards is your name, email address, shipping address, what you ordered and whether it paid. <strong>We never see your full card number</strong>. Shopify shows us the last four digits and the card type, nothing more. We use this to post you a key and to answer you if you write in.</p>
+    <p>Your address is shared with the postal or courier service that carries the parcel, because that is how parcels work.</p>
+    <h2>This website</h2>
+    <p><strong>We set no cookies.</strong> There is no consent banner on this site because there is nothing to consent to.</p>
+    <p>The site is hosted on Vercel, which keeps standard server logs including IP addresses. We use Vercel Web Analytics, which is cookieless: it records the page visited, the referring site, rough country, and browser and device type, in aggregate. It does not set a persistent identifier, does not follow you across other websites, and cannot tell us who you are.</p>
+    <h2>Email</h2>
+    <p>If you write to <a href="mailto:noah@lotustech.me">noah@lotustech.me</a>, we keep the message so we can help you and remember what happened last time. That inbox is hosted by Microsoft Outlook, so Microsoft processes it as any mail provider does.</p>
+    <p>If you give us your email address — to hear when Stick ships, or for occasional updates — it is stored with Buttondown and used for nothing else. We record which of those you asked about so we don't send you the other ones. No account, no password: an address in a box is the whole of it. Every message has an unsubscribe link, and unsubscribing deletes you from the list.</p>
+    <h2>What we never do</h2>
+    <p>We don’t sell your data, rent it, or share it for advertising. There are no advertising or social tracking pixels on this site. We don’t build profiles, and we couldn’t build one from app usage even if we wanted to, because none of it reaches us.</p>
+    <h2>How long we keep things</h2>
+    <p>Order records are kept as long as tax and accounting rules require, which in most places is several years. We can’t delete those on request while that obligation stands. Support emails are kept while they’re useful and deleted when they aren’t. Analytics data is aggregated and holds nothing personal to delete.</p>
+    <h2>Your rights</h2>
+    <p>Wherever you are, you can ask us what we hold about you, ask for a copy, ask us to correct it, or ask us to delete it. If you’re in the UK, EU, California or somewhere with similar law, those rights are yours by statute; we’ll honour them regardless of where you live.</p>
+    <p>Email <a href="mailto:noah@lotustech.me">noah@lotustech.me</a> and we’ll answer within one business day. There’s very little to hand over: an order record, and possibly an email thread.</p>
+    <h2>Children</h2>
+    <p>Stick isn’t aimed at children and we don’t knowingly collect anything from anyone under 13. It’s a tool for people choosing to limit their own computer, not for monitoring somebody else’s.</p>
+    <h2>Changes</h2>
+    <p>If this changes in a way that matters, we’ll date it here and email anyone who has bought a Stick. We’re not going to quietly start collecting things. The claim that the app talks to nothing of ours is load-bearing, and we’d rather lose the argument than the trust.</p>
   </main>
 </body>
 </html>
