@@ -198,13 +198,21 @@
     var rgb =
       "rgb(" + Math.round(color[0]) + ", " + Math.round(color[1]) + ", " +
       Math.round(color[2]) + ")";
+    // Written only when it changes. Setting a variable on the root restyles
+    // every element on the page, and this runs on every scrolled frame, most of
+    // which sit inside one section where the colour is held.
+    if (rgb === paintedBg) return;
+    paintedBg = rgb;
     root.style.setProperty("--bg-top", rgb);
     var lum = (color[0] * 0.299 + color[1] * 0.587 + color[2] * 0.114) / 255;
-    root.style.setProperty(
-      "--buzz-dot",
-      lum > 0.55 ? "rgba(35, 30, 30, 0.16)" : "rgba(35, 30, 30, 0.22)"
-    );
+    var dot = lum > 0.55 ? "rgba(35, 30, 30, 0.16)" : "rgba(35, 30, 30, 0.22)";
+    if (dot !== paintedDot) {
+      paintedDot = dot;
+      root.style.setProperty("--buzz-dot", dot);
+    }
   }
+  var paintedBg = "";
+  var paintedDot = "";
 
   measureAnchors();
   paintBackground();
@@ -253,7 +261,9 @@
           revealObserver.unobserve(el);
         });
       },
-      { threshold: 0.18, rootMargin: "0px 0px -8% 0px" }
+      // From the first pixel in view: waiting for 18% of a block left an empty
+      // gap on screen while scrolling at an ordinary pace.
+      { threshold: 0 }
     );
     Array.prototype.forEach.call(revealables, function (el) { revealObserver.observe(el); });
   } else {

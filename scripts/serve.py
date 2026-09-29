@@ -12,6 +12,7 @@ and trailing-slash rule from vercel.json, so what you see here is what ships.
 import http.server
 import json
 import os
+import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -43,8 +44,51 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         return True
 
     def do_GET(self):
-        if not self.route():
+        if self.route():
+            return
+        if not self.send_range():
             super().do_GET()
+
+    def send_range(self):
+        """Answer a byte-range request, which Safari insists on for video.
+
+        The standard library's server ignores Range and sends the whole file with
+        a 200, and Safari will not play an <video> served that way at all. Vercel
+        answers ranges, so without this the video worked in production and not
+        here.
+        """
+        m = re.fullmatch(r"bytes=(\d*)-(\d*)", self.headers.get("Range", "").strip())
+        path = self.translate_path(self.path)
+        if not m or not os.path.isfile(path):
+            return False
+        size = os.path.getsize(path)
+        if m.group(1):
+            start = int(m.group(1))
+            end = min(int(m.group(2)), size - 1) if m.group(2) else size - 1
+        elif m.group(2):
+            start, end = max(size - int(m.group(2)), 0), size - 1
+        else:
+            return False
+        if start > end or start >= size:
+            self.send_response(416)
+            self.send_header("Content-Range", f"bytes */{size}")
+            self.send_header("Content-Length", "0")
+            self.end_headers()
+            return True
+        with open(path, "rb") as f:
+            f.seek(start)
+            body = f.read(end - start + 1)
+        self.send_response(206)
+        self.send_header("Content-Type", self.guess_type(path))
+        self.send_header("Content-Range", f"bytes {start}-{end}/{size}")
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+        return True
+
+    def end_headers(self):
+        self.send_header("Accept-Ranges", "bytes")
+        super().end_headers()
 
     def do_HEAD(self):
         if not self.route():
