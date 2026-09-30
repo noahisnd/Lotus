@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" style="--bg-top: rgb(247, 168, 200);">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo — Stick</title>
+  <meta name="description" content="A short video: unboxing a Stick, installing it, setting up a mode and watching a site stop loading.">
+  <link rel="icon" href="../assets/icon.svg">
+  <meta name="theme-color" content="#f7a8c8">
+  <link rel="stylesheet" href="../assets/styles.css?v=ea9d69bd">
+</head>
+<body>
+  <div class="bg-wash" aria-hidden="true"></div>
+  <div class="bg-dots" aria-hidden="true"></div>
+  <main class="doc-page">
+    <a class="doc-back buzz-pill" href="../index.html">&#8592; Back</a>
+    <h1>See it work</h1>
+    <p>The whole thing, start to finish: opening the key, installing the app, choosing what to block, and a site refusing to load. About a minute, on a Mac.</p>
+    <!-- Wider than the text column. The video is a recording of a whole
+         desktop, and the Stick window inside it is only about a third of its
+         width, so at the column's 720px that window would draw at a size well
+         under the one its text was made for. preload="metadata" because the
+         file is 9 MB and the poster fills the frame until someone presses play;
+         it has sound, so it never plays on its own. -->
+    <video class="doc-video" src="/demo.mp4" poster="/demo-poster.jpg" width="1920" height="1080" controls playsinline preload="metadata"></video>
+    <p class="doc-caption">Has sound. About a minute.</p>
+
+    <h2>What happens in it</h2>
+    <p>If you would rather read it than watch it, this is the same thing in order. Setting one up takes about as long as the video does.</p>
+    <dl class="doc-chapters">
+      <div><dt>0:00</dt><dd><strong>The key</strong>What arrives, and what it is for.</dd></div>
+      <div><dt>0:04</dt><dd><strong>Plug it in</strong>It mounts as a drive called STICK, carrying one file to open on a Mac and one on Windows. Nothing to download.</dd></div>
+      <div><dt>0:12</dt><dd><strong>Install</strong>The ordinary installer for your system. It asks for your Mac password once, the way any installer does. There is no account to make and nothing to sign in to.</dd></div>
+      <div><dt>0:26</dt><dd><strong>Register the key</strong>The drive you just plugged in becomes the one that ends sessions. This is the step the whole product turns on.</dd></div>
+      <div><dt>0:30</dt><dd><strong>Pick what to block</strong>Apps and sites, saved together as a mode. The one in the video ends up blocking four apps and a site.</dd></div>
+      <div><dt>0:45</dt><dd><strong>Lock</strong>The session starts, the app says the only way out is the key, and Instagram stops loading.</dd></div>
+    </dl>
+    <p>Windows is the same shape — the installer looks like a Windows installer, and the app is the same app. It needs macOS 13 Ventura or later, or Windows 10 or 11.</p>
+
+    <h2>The only way out is a walk.</h2>
+    <p>$39.99 plus shipping, one time. Ships Q4 2026.</p>
+    <a class="doc-back buzz-pill" href="/#pricing">Get Stick</a>
+  </main>
+</body>
+</html>

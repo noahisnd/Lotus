@@ -47,9 +47,8 @@ Old URLs keep working:
 
 | URL | Goes to |
 | --- | --- |
-| `/faq`, `/terms`, `/refunds`, `/privacy`, `/contact` | `pages/*.html`, same URL in the bar |
+| `/faq`, `/demo`, `/terms`, `/refunds`, `/privacy`, `/contact` | `pages/*.html`, same URL in the bar |
 | `/buy` | `/#pricing` — the colour choice |
-| `/demo` | `/#how-it-works` |
 | `/story`, `/updates` | `/` for now — see below |
 
 The redirects are temporary (307) on purpose, so that when real pages come back
@@ -94,7 +93,7 @@ md5 -q public/assets/styles.css | cut -c1-8
 ```
 vercel.json          routing, and no build
 public/index.html    the page
-public/pages/        faq, terms, refunds, privacy, contact
+public/pages/        faq, demo, terms, refunds, privacy, contact
 public/assets/       styles.css, app.js, icon, step media, the key photo
 public/*.json        update manifests — see the top of this file
 public/*.pkg, *.exe  the installers those manifests name

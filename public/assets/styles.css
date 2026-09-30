@@ -637,6 +637,34 @@ img, video { cursor: var(--cursor-arrow); }
   font-size: 15px;
   line-height: 0.9;
 }
+/* The demo video breaks out of the 720px text column, up to 1280px: the
+   Stick window in the recording is a third of its width and needs the room. */
+.doc-page .doc-video {
+  display: block;
+  width: min(1280px, calc(100vw - 48px));
+  height: auto;
+  margin: 36px 0 0 calc((100% - min(1280px, calc(100vw - 48px))) / 2);
+  border-radius: 14px;
+  background: var(--buzz-ink);
+}
+.doc-page .doc-caption { margin-top: 12px; font-size: 14px; opacity: 0.66; }
+.doc-chapters { margin: 24px 0 28px; }
+.doc-chapters > div {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  gap: 16px;
+  padding: 16px 0;
+  border-top: 1px solid rgba(35, 30, 30, 0.18);
+}
+.doc-chapters dt {
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.66;
+  padding-top: 2px;
+}
+.doc-chapters dd { margin: 0; font-size: 17px; line-height: 1.45; letter-spacing: -0.02em; }
+.doc-chapters dd strong { display: block; font-weight: 600; margin-bottom: 4px; }
+
 .doc-note {
   margin-top: 48px;
   padding: 16px 18px;

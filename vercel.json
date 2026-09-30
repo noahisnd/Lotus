@@ -7,12 +7,12 @@
   "trailingSlash": false,
   "redirects": [
     { "source": "/buy", "destination": "/#pricing", "permanent": false },
-    { "source": "/demo", "destination": "/#how-it-works", "permanent": false },
     { "source": "/story", "destination": "/", "permanent": false },
     { "source": "/updates", "destination": "/", "permanent": false }
   ],
   "rewrites": [
     { "source": "/faq", "destination": "/pages/faq.html" },
+    { "source": "/demo", "destination": "/pages/demo.html" },
     { "source": "/terms", "destination": "/pages/terms.html" },
     { "source": "/refunds", "destination": "/pages/refunds.html" },
     { "source": "/privacy", "destination": "/pages/privacy.html" },
