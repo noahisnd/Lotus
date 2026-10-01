@@ -138,16 +138,16 @@
   /* -------------------------------------------------- scrolling background */
 
   var SECTION_COLORS = {
-    hero: [247, 168, 200],
-    how: [247, 168, 200],
+    hero: [255, 105, 180],
+    how: [255, 105, 180],
     compare: [215, 231, 245],
     pricing: [158, 203, 245],
     modes: [158, 203, 245],
     details: [215, 231, 245],
     key: [215, 231, 245],
-    platforms: [247, 168, 200],
-    questions: [247, 168, 200],
-    footer: [247, 168, 200]
+    platforms: [255, 105, 180],
+    questions: [255, 105, 180],
+    footer: [255, 105, 180]
   };
 
   var anchors = [];
